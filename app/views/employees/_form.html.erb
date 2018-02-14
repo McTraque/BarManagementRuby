@@ -1,0 +1,37 @@
+<%= form_with(model: employee, local: true, url: (employee.new_record? ? employees_path : employee_path(employee))) do |form| %>
+  <% if employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name, class:"white" %>
+    <%= form.text_field :first_name, id: :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email, class:"white" %>
+    <%= form.text_field :email, id: :employee_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :role, class:"white" %>
+    <%= form.select :role, :collection => User.roles.keys.to_a %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password, class:"white" %>
+    <%= form.password_field :password, id: :password %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

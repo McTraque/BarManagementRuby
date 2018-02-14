@@ -1,0 +1,29 @@
+    <div class="limiter">
+      <div class="container-login100">
+        <div class="wrap-login100">
+          <span class="login100-form-title">
+      						INICIO DE SESIÓN
+      					</span>
+
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+
+                <div class="login100-pic js-tilt" data-tilt style="will-change: transform; transform: perspective(300px) rotateX(0deg) rotateY(0deg);">
+                  <br>
+                    <%= f.email_field :email, autofocus: true, class:"input100",   placeholder:"Email" %>
+                  <div class="field">
+                  <br>
+                  <%= f.password_field :password, autocomplete: "off", class:"input100", placeholder:"Password" %>
+                  </div>
+                    <% if devise_mapping.rememberable? -%>
+                  <div class="field">
+                </div>
+                <% end -%>
+                  <div class="container-login100-form-btn">
+                    <%= f.submit "Ingresar", class:"login100-form-btn"%>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+        </div>
+      </div>

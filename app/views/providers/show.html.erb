@@ -1,0 +1,35 @@
+<hr class="divider">
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <ul class="list-group">
+
+    <li class="list-group-item">
+      <center><strong>Razon Social:</strong>
+      <%= @provider.razon_social %></center>
+    </li>
+
+    <li class="list-group-item">
+      <center><strong>NIT:</strong>
+      <%= @provider.nit %></center>
+    </li>
+
+    <li class="list-group-item">
+      <center><strong>Nombre Completo:</strong>
+      <%= @provider.nombre_completo %></center>
+    </li>
+
+    <li class="list-group-item">
+      <center><strong>Telefono:</strong>
+      <%= @provider.telefono %></center>
+    </li>
+
+    <li class="list-group-item">
+      <center><strong>Email:</strong>
+      <%= @provider.email %></center>
+    </li>
+
+  </ul>
+</div>
+<%= link_to 'Editar', edit_provider_path(@provider) %> |
+<%= link_to 'Volver', providers_path %>

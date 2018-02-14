@@ -1,0 +1,27 @@
+<%= form_with(model: [:order, item], local: true) do |form| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :order_id, value: item.order.id %>
+
+<div class="wrap-crud100">
+  <div class="select100">
+    <%= form.collection_select :product_id, Product.all, :id, :name %>
+  </div>
+
+    <%= form.text_field :quantity, class:"input100", placeholder:"Cantidad"%>
+
+  <div class="actions">
+    <%= form.submit class:"crud100-form-btn", value:"Agregar Producto" %>
+  </div>
+</div>
+<% end %>

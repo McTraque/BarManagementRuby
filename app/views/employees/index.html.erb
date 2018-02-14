@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<hr class="divider">
+<h1 style="color:#f2f2f2"><center>Empleados</center></h1>
+
+
+<table class="table">
+  <thead  class="thead-inverse">
+    <tr style="color:#f2f2f2">
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Correo</th>
+      <th>Rol</th>
+      <th colspan="3">Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employees| %>
+      <tr style="color:#f2f2f2">x
+        <td><%= employees.first_name %></td>
+        <td><%= employees.last_name %></td>
+        <td><%= employees.email %></td>
+        <td><%= employees.role %></td>
+        <td><%= link_to 'Mostrar', employee_path(employees) %></td>
+        <td><%= link_to 'Modificar', edit_employee_path(employees) %></td>
+        <td><%= link_to 'Eliminar', employees_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

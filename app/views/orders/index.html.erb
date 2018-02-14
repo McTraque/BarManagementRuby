@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<hr class="divider">
+<h1 style="color:#f2f2f2"><center>Comandas</center></h1>
+
+<table class="table">
+  <thead  class="thead-inverse">
+    <tr style="color:#f2f2f2">
+      <th>Id</th>
+      <th>Mesa</th>
+      <th colspan="4">Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr style="color:#f2f2f2">
+        <td><%= order.id %></td>
+        <td><%= order.bench.number %></td>
+        <td><%= link_to 'Agregar Productos', new_order_item_path(order) %></td>
+        <td><%= link_to 'Mostrar', order_items_path(order) %></td>
+        <td><%= link_to 'Editar Mesa Asociada', edit_order_path(order) %></td>
+        <td><%= link_to 'Eliminar', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva Comanda', new_order_path %>

@@ -1,0 +1,20 @@
+<hr class="divider">
+<p id="notice"><%= notice %></p>
+
+
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <center><strong>Numero de mesa:</strong></center>
+      <center><%= @bench.number %></center>
+    </li>
+
+    <li class="list-group-item">
+      <center><strong>Estado:</strong></center>
+      <center><%= @bench.status %></center>
+    <li>
+  </ul>
+</div>
+
+<%= link_to 'Editar', edit_bench_path(@bench) %> |
+<%= link_to 'Atrás', benches_path %>

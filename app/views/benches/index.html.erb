@@ -1,0 +1,36 @@
+<%if user_signed_in?%>
+<p id="notice"><%= notice %></p>
+
+<hr class="divider">
+<h1 style="color:#f2f2f2"><center>Mesas</center></h1>
+
+<table class="table">
+  <thead  class="thead-inverse">
+    <tr style="color:#f2f2f2">
+      <th>Número de Mesa</th>
+      <th>Estado</th>
+      <th colspan="3">Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @benches.each do |bench| %>
+      <tr style="color:#f2f2f2">
+        <td><%= bench.number %></td>
+        <td><%= I18n.t :"bench_status.#{bench.status}" %></td>
+        <td><%= link_to 'Mostrar', bench %></td>
+        <td><%= link_to 'Editar', edit_bench_path(bench) %></td>
+        <% if bench.libre? %>
+          <td><%= link_to 'Desactivar', ocupada_bench_path(bench), data: { confirm: 'Está seguro?' }%></td>
+        <% else %>
+          <td><%= link_to 'Activar', libre_bench_path(bench), data: { confirm: 'Está seguro?' }%></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva Mesa', new_bench_path, class:"white" %>
+<% end %>

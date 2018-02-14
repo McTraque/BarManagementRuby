@@ -1,0 +1,15 @@
+<hr class="divider">
+<p id="notice"><%= notice %></p>
+
+
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <center><strong>Nombre:</strong></center>
+      <center><%= @product_type.name %></center>
+    </li>
+  </ul>
+</div>
+
+<%= link_to 'Editar', edit_product_type_path(@product_type) %> |
+<%= link_to 'Atrás', product_types_path %>

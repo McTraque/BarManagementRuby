@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fonda La Chiquita</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+    <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">FONDA LA CHIQUITA</div>
+    <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Un lugar para hacer amigos</div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
+      <div class="container">
+        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">BarManagement</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav mx-auto">
+              <%if user_signed_in?%>
+                <li class="nav-item px-lg-4">
+                  <%=link_to "Proveedores", providers_path, class: "nav-link text-uppercase text-expanded"%>
+                </li>
+                <% if current_user.admin? %>
+                  <li class="nav-item px-lg-4">
+                    <%=link_to "Productos", products_path, class: "nav-link text-uppercase text-expanded"%>
+                  </li>
+                <% end %>
+                <li class="nav-item px-lg-4">
+                  <%=link_to "Mesas", benches_path, class: "nav-link text-uppercase text-expanded"%>
+                </li>
+                <li class="nav-item px-lg-4">
+                  <%=link_to "Comandas", orders_path, class: "nav-link text-uppercase text-expanded"%>
+                </li>
+                <% if current_user.admin? %>
+                  <li class="nav-item px-lg-4">
+                    <%=link_to "Empleados", employees_path, class: "nav-link text-uppercase text-expanded"%>
+                  </li>
+                <% end %>
+                <li class="nav-item px-lg-4">
+                  <%=link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "nav-link text-uppercase text-expanded"%>
+                </li>
+              <% else %>
+                <li class="nav-item active px-lg-4">
+                  <%= link_to "Home", welcome_index_path, class: "nav-link text-uppercase text-expanded" %>
+                  </a>
+                </li>
+                <li class="nav-item px-lg-4">
+                  <%= link_to "Productos", productos_index_path, class: "nav-link text-uppercase text-expanded" %>
+                </li>
+                <li class="nav-item px-lg-4">
+                    <%= link_to "Eventos", eventos_path, class: "nav-link text-uppercase text-expanded" %>
+                </li>
+                <li class="nav-item px-lg-4">
+                  <%= link_to "Login", new_user_session_path, class: "nav-link text-uppercase text-expanded" %>
+                </li>
+              <%end%>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <%= yield %>
+
+    <p class="notice" style="color:#f2f2f2"><%= notice %></p>
+    <p class="alert" style="color:#f2f2f2"><%= alert %></p>
+
+    <footer class="bg-faded text-center py-5">
+      <div class="container">
+        <small>Copyright &copy;  <strong>BarManagement 2018</small>
+      </div>
+    </footer>
+
+  </body>
+
+</html>
