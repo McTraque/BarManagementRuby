@@ -1,7 +1,7 @@
 <%= form_with(model: provider, local: true) do |form| %>
   <% if provider.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(provider.errors.count, "error") %> prohibited this provider from being saved:</h2>
+      <h2>Los siguientes errores no permiten continuar con la operación:</h2>
 
       <ul>
       <% provider.errors.full_messages.each do |message| %>
@@ -23,7 +23,7 @@
     <%= form.text_field :email, id: :provider_email, class:"input100", placeholder:"Email" %>
 
   <div class="actions">
-    <%= form.submit class:"crud100-form-btn"%>
+    <%= form.submit class:"crud100-form-btn", value:"Registrar"%>
   </div>
 </div>
 

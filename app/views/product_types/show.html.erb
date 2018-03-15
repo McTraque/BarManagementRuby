@@ -1,3 +1,4 @@
+<%if user_signed_in?%>
 <hr class="divider">
 <p id="notice"><%= notice %></p>
 
@@ -13,3 +14,4 @@
 
 <%= link_to 'Editar', edit_product_type_path(@product_type) %> |
 <%= link_to 'Atrás', product_types_path %>
+<% end %>

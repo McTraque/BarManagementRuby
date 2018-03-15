@@ -1,14 +1,22 @@
+<%if user_signed_in?%>
+<hr class="divider">
 <p id="notice"><%= notice %></p>
 
-<p style="color:#f2f2f2">
-  <strong>Email:</strong>
-  <%= @employee.email %>
-</p>
+<div class="container">
+  <ul class="list-group">
 
-<p style="color:#f2f2f2">
-  <strong>Rol:</strong>
-  <%= @employee.role %>
-</p>
+    <li class="list-group-item">
+      <center><strong>Email:</strong></center>
+      <center><%= @employee.email %></center>
+    </li>
 
+    <li class="list-group-item">
+      <center><strong>Rol:</strong></center>
+      <center><%= @employee.role %></center>
+    </li>
+
+  </ul>
+</div>
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %>
+<% end %>

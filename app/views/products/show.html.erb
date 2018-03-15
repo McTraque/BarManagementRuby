@@ -1,3 +1,4 @@
+<%if user_signed_in?%>
 <hr class="divider">
 <p id="notice"><%= notice %></p>
 
@@ -11,26 +12,39 @@
 
     <li class="list-group-item">
       <center><strong>Tipo de producto:</strong></center>
-      <center><%= @product.product_type.name %></center>  
+      <center><%= @product.product_type.name %></center>
     </li>
 
     <li class="list-group-item">
       <center><strong>Proveedor:</strong></center>
-      <center><%= @product.provider.razon_social %></center>  
+      <center><%= @product.provider.razon_social %></center>
     </li>
 
     <li class="list-group-item">
       <center><strong>Cantidad:</strong></center>
-      <center><%= @product.quantity %></center> 
+      <center><%= @product.quantity %></center>
     </li>
 
     <li class="list-group-item">
-      <center><strong>Valor Unitario:</strong></center>
-      <center><%= number_to_currency(@product.value, precision: 0) %></center>  
+      <center><strong>Valor De Compra:</strong></center>
+      <center><%= number_to_currency(@product.buy_value, precision: 0) %></center>
     </li>
+
+    <li class="list-group-item">
+      <center><strong>Valor De Venta:</strong></center>
+      <center><%= number_to_currency(@product.sell_value, precision: 0) %></center>
+    </li>
+
+    <li class="list-group-item">
+      <center><strong>Descripción:</strong></center>
+      <center><%= number_to_currency(@product.description, precision: 0) %></center>
+    </li>
+
+
 
   </ul>
 </div>
 
 <%= link_to 'Editar', edit_product_path(@product) %> |
 <%= link_to 'Atrás', products_path %>
+<% end %>

@@ -1,3 +1,4 @@
+<%if user_signed_in?%>
 <p id="notice"><%= notice %></p>
 
 <hr class="divider">
@@ -6,7 +7,7 @@
 <table class="table">
   <thead  class="thead-inverse">
     <tr style="color:#f2f2f2">
-      <th>Id</th>
+      <th>Número de Orden</th>
       <th>Mesa</th>
       <th colspan="4">Opciones</th>
     </tr>
@@ -29,3 +30,4 @@
 <br>
 
 <%= link_to 'Nueva Comanda', new_order_path %>
+<% end %>

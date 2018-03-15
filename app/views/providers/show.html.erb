@@ -1,3 +1,4 @@
+<%if user_signed_in?%>
 <hr class="divider">
 <p id="notice"><%= notice %></p>
 
@@ -33,3 +34,4 @@
 </div>
 <%= link_to 'Editar', edit_provider_path(@provider) %> |
 <%= link_to 'Volver', providers_path %>
+<% end %>

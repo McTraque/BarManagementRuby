@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   validates :role, :email, presence: true
   enum role: { bartender: 0, waiter: 1, admin: 2 }
+  enum status: { enable: 0, disable: 1 }
 
 end

@@ -1,6 +1,8 @@
+<%if user_signed_in?%>
 <hr class="divider">
-<h1 style="color:#f2f2f2">Nuevo Empleado</h1>
+<center><h1 style="color:#f2f2f2">Nuevo Empleado</h1></center>
 
 <%= render 'form', employee: @employee %>
 
 <%= link_to 'Atrás', employees_path %>
+<% end %>

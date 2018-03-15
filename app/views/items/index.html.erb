@@ -1,3 +1,4 @@
+<%if user_signed_in?%>
 <p id="notice"><%= notice %></p>
 
 <h1>Comanda</h1>
@@ -21,7 +22,7 @@
       <tr>
         <td><%= item.product.name %></td>
         <td><%= item.quantity %></td>
-        <td><%= number_to_currency(item.value, precision: 0) %></td>
+        <td><%= number_to_currency(item.sell_value, precision: 0) %></td>
         <td><%= number_to_currency(item.total, precision: 0) %></td>
         <td><%= link_to 'Destroy', order_item_path(@order, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -34,3 +35,4 @@
 <br>
 
 <td><%= link_to 'Agregar Productos', new_order_item_path(@order) %></td>
+<% end %>

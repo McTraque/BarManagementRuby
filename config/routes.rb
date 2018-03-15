@@ -23,7 +23,13 @@ Rails.application.routes.draw do
 
   resources :product_types
 
-  resources :products
+  resources :products do
+    resources :transactions
+    member do
+      get :disable
+      get :enable
+    end
+  end
 
   resources :providers do
     member do

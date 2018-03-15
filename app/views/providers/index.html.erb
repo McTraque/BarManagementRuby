@@ -28,7 +28,7 @@
         <td><%= provider.email %></td>
         <td><%= I18n.t :"provider_status.#{provider.status}" %></td>
         <td><%= link_to 'Mostrar', provider %></td>
-        <td><%= link_to 'Editar', edit_provider_path(provider)%></td>
+        <td><%= link_to 'Modificar', edit_provider_path(provider)%></td>
         <% if provider.enable? %>
           <td><%= link_to 'Desactivar', disable_provider_path(provider), data: { confirm: 'Está seguro?' }%></td>
         <% else %>

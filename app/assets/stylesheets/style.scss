@@ -204,7 +204,7 @@ iframe {
     margin-left: 140px;
 }
 
-.select100 {
+#select100 {
     font-family: Poppins-Medium;
     font-size: 15px;
     line-height: 1.5;
@@ -388,7 +388,7 @@ iframe {
     line-height: 1.5;
     color: #fff;
     text-transform: uppercase;
-    margin-left: 327px;
+    margin-left: 344px;
     margin-top: 21px;
     width: 60%;
     height: 50px;
@@ -411,6 +411,36 @@ iframe {
 .crud100-form-btn:hover {
   background: #333333;
 }
+
+.crud200-form-btn {
+    font-family: Montserrat-Bold;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #F03C15;
+    text-transform: uppercase;
+    margin-left: 344px;
+    margin-top: 21px;
+    width: 60%;
+    height: 50px;
+    border-radius: 25px;
+    background: #57b846;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    }
+
+    .crud200-form-btn:hover {
+      background: #333333;
+    }
 
 
 .login100-form-btn:hover {

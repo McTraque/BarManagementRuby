@@ -1,7 +1,8 @@
 <%= form_with(model: bench, local: true) do |form| %>
   <% if bench.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(bench.errors.count, "error") %> prohibited this bench from being saved:</h2>
+    <div class="alert alert-danger alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <h2>Los siguientes errores no permiten continuar con la operación:</h2>
 
       <ul>
       <% bench.errors.full_messages.each do |message| %>
@@ -15,7 +16,7 @@
       <%= form.number_field :number, id: :bench_number, class:"input100", placeholder:"Número de Mesa" %>
 
     <div class="actions">
-      <%= form.submit class:"crud100-form-btn" %>
+      <%= form.submit class:"crud100-form-btn", value:"Registrar" %>
     </div>
   </div>
 <% end %>

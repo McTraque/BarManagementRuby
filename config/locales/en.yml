@@ -31,14 +31,3 @@
 
 en:
   hello: "Hello world"
-  provider_status:
-    enable: "Activo"
-    disabled: "Inactivo"
-
-  bench_status:
-    libre: "Libre"
-    ocupada: "Ocupada"
-
-  employee_status:
-    enable: "Activo"
-    disabled: "Inactivo"

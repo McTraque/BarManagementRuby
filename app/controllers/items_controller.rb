@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
       if validate_product_quantity(product, @item.quantity) && @item.save
         @item.update(value: product.value, total: (product.value * @item.quantity))
         product.update(quantity: (product.quantity - @item.quantity))
-        format.html { redirect_to order_items_path(@order), notice: 'Item was successfully created.' }
+        format.html { redirect_to order_items_path(@order), notice: 'El item se ha creado correctamente.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
   def destroy
     @order.items.find(params[:id]).destroy
     respond_to do |format|
-      format.html { redirect_to order_items_path(@order), notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to order_items_path(@order), notice: 'El item ha sido eliminado correctamente.' }
       format.json { head :no_content }
     end
   end

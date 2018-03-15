@@ -1,3 +1,4 @@
+<%if user_signed_in?%>
 <p id="notice"><%= notice %></p>
 
 <hr class="divider">
@@ -5,10 +6,9 @@
 
 
 <table class="table">
-  <thead  class="thead-inverse">
+  <thead class="thead-inverse">
     <tr style="color:#f2f2f2">
       <th>Nombre</th>
-      <th>Apellido</th>
       <th>Correo</th>
       <th>Rol</th>
       <th colspan="3">Opciones</th>
@@ -19,7 +19,6 @@
     <% @employees.each do |employees| %>
       <tr style="color:#f2f2f2">x
         <td><%= employees.first_name %></td>
-        <td><%= employees.last_name %></td>
         <td><%= employees.email %></td>
         <td><%= employees.role %></td>
         <td><%= link_to 'Mostrar', employee_path(employees) %></td>
@@ -31,3 +30,5 @@
 </table>
 
 <br>
+<%= link_to 'Registrar Empleado', new_employee_path%>
+<%end%>

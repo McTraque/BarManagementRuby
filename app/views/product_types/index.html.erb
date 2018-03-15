@@ -1,3 +1,4 @@
+<%if user_signed_in?%>
 <p id="notice"><%= notice %></p>
 
 <hr class="divider">
@@ -28,3 +29,4 @@
 <%= link_to 'Nuevo tipo de producto', new_product_type_path %>
 <hr>
 <%= link_to 'Volver a productos', products_path %>
+<% end %>

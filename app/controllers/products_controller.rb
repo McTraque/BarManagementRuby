@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :enable, :disable]
 
   # GET /products
   # GET /products.json
@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to @product, notice: 'El producto se ha creado con éxito.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to @product, notice: 'El producto se ha se ha actualizado con éxito.' }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }
@@ -51,12 +51,28 @@ class ProductsController < ApplicationController
     end
   end
 
+  def disable
+    @product.disabled!
+    respond_to do |format|
+      format.html { redirect_to products_url, notice: 'El producto se inhabilitó exitosamente.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def enable
+    @product.enable!
+    respond_to do |format|
+      format.html { redirect_to products_url, notice: 'El producto se habilitó exitosamente.' }
+      format.json { head :no_content }
+    end
+  end
+
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to products_url, notice: 'El producto se ha eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
@@ -69,7 +85,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :product_type_id, :provider_id, :quantity, :value)
+      params.require(:product).permit(:name, :product_type_id, :provider_id, :sell_value, :buy_value, :quantity, :description)
     end
 end
-    

@@ -1,3 +1,4 @@
+<%if user_signed_in?%>
 <hr class="divider">
 <p id="notice"><%= notice %></p>
 
@@ -18,3 +19,4 @@
 
 <%= link_to 'Editar', edit_bench_path(@bench) %> |
 <%= link_to 'Atrás', benches_path %>
+<% end %>

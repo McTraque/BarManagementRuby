@@ -1,0 +1,33 @@
+<%if user_signed_in?%>
+<p id="notice"><%= notice %></p>
+
+<hr class="divider">
+<h1 style="color:#f2f2f2"><center>Transacciones de Producto <%= @product.name %></center></h1>
+
+
+<table class="table">
+  <thead  class="thead-inverse">
+    <tr style="color:#f2f2f2">
+      <th>Tipo de transacción</th>
+      <th>Cantidad</th>
+      <th>Hora</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr style="color:#f2f2f2">
+        <td><%= transaction.kind %></td>
+        <td><%= transaction.quantity %></td>
+        <td><%= transaction.created_at.strftime("%b %d %Y, %H:%M") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Agregar Cantidad', new_product_transaction_path(@product, kind: 0) %>
+<hr>
+<%= link_to 'Restar Cantidad', new_product_transaction_path(@product, kind: 1) %>
+<% end %>

@@ -1,7 +1,8 @@
 <%= form_with(model: product, local: true) do |form| %>
   <% if product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+    <div class="alert alert-danger alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <h2>Los siguientes errores no permiten continuar con la operación:</h2>
 
       <ul>
       <% product.errors.full_messages.each do |message| %>
@@ -15,19 +16,21 @@
       <%= form.text_field :name, id: :product_name, class:"input100", placeholder:"Nombre Del Producto" %>
 
       <div class="select100">
-      <%= form.collection_select :product_type_id, ProductType.all, :id, :name, include_blank:"Tipo de Producto", class:"select100-padding"%>
+      <%= form.collection_select :product_type_id, ProductType.all, :id, :name, include_blank: "-Elija un Producto-", class:"select100-padding"%>
         </div>
 
       <div class="select100">
         <%= form.collection_select :provider_id, Provider.enable, :id, :nombre_completo, include_blank:"Proveedor", class:"select100-padding" %>
       </div>
 
-      <%= form.number_field :quantity, id: :product_quantity, class:"input100", placeholder:"Cantidad" %>
+      <%= form.text_field :buy_value, id: :buy_value, class:"input100", placeholder:"Precio de compra" %>
 
-      <%= form.text_field :value, id: :product_value, class:"input100", placeholder:"Valor" %>
+      <%= form.text_field :sell_value, id: :sell_value, class:"input100", placeholder:"Precio de venta" %>
+
+      <%= form.text_area :description, id: :description, class:"input100", placeholder:"Description" %>
 
     <div class="actions">
-      <%= form.submit class:"crud100-form-btn"%>
+      <%= form.submit class:"crud100-form-btn", value:"Registrar"%>
     </div>
   </div>
 

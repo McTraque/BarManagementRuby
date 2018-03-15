@@ -1,7 +1,8 @@
 <%= form_with(model: product_type, local: true) do |form| %>
   <% if product_type.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(product_type.errors.count, "error") %> prohibited this product_type from being saved:</h2>
+    <div class="alert alert-danger alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <h2>Los siguientes errores no permiten continuar con la operación:</h2>
 
       <ul>
       <% product_type.errors.full_messages.each do |message| %>
@@ -15,7 +16,7 @@
     <%= form.text_field :name, id: :product_type_name, class:"input100", placeholder:"Nombre Del Producto"%>
 
     <div class="actions">
-      <%= form.submit class:"crud100-form-btn"%>
+      <%= form.submit class:"crud100-form-btn", value:"Registrar"%>
     </div>
   </div>
 <% end %>

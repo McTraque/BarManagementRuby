@@ -1,0 +1,8 @@
+<%if user_signed_in?%>
+<hr class="divider">
+<center><h1 style="color:#FFF">Nueva Transacción</h1></center>
+
+<%= render 'form', transaction: @transaction, product: @product %>
+
+<%= link_to 'Atrás', products_path %>
+<% end %>

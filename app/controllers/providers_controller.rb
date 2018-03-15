@@ -28,7 +28,7 @@ class ProvidersController < ApplicationController
 
     respond_to do |format|
       if @provider.save
-        format.html { redirect_to @provider, notice: 'Provider was successfully created.' }
+        format.html { redirect_to @provider, notice: 'El proveedor ha sido creado con éxito.' }
         format.json { render :show, status: :created, location: @provider }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ProvidersController < ApplicationController
   def update
     respond_to do |format|
       if @provider.update(provider_params)
-        format.html { redirect_to @provider, notice: 'Provider was successfully updated.' }
+        format.html { redirect_to @provider, notice: 'El proveedor ha sido actualizado con éxito.' }
         format.json { render :show, status: :ok, location: @provider }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ProvidersController < ApplicationController
   def disable
     @provider.disabled!
     respond_to do |format|
-      format.html { redirect_to providers_url, notice: 'Provider was successfully disabled.' }
+      format.html { redirect_to providers_url, notice: 'El proveedor ha sido deshabilitado con éxito' }
       format.json { head :no_content }
     end
   end
@@ -64,7 +64,7 @@ class ProvidersController < ApplicationController
   def enable
     @provider.enable!
     respond_to do |format|
-      format.html { redirect_to providers_url, notice: 'Provider was successfully enabled.' }
+      format.html { redirect_to providers_url, notice: 'El proveedor ha sido habilitado con éxito' }
       format.json { head :no_content }
     end
   end

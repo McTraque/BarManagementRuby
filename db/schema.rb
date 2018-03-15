@@ -10,23 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180111185937) do
+ActiveRecord::Schema.define(version: 20180315213442) do
 
   create_table "benches", force: :cascade do |t|
     t.integer "number"
-    t.integer "status", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "employees", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "phone_number"
-    t.string "adress"
-    t.string "id_card"
-    t.integer "role"
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -61,10 +48,13 @@ ActiveRecord::Schema.define(version: 20180111185937) do
     t.string "name"
     t.integer "product_type_id"
     t.integer "provider_id"
-    t.integer "quantity"
-    t.decimal "value"
+    t.integer "quantity", default: 0
+    t.decimal "sell_value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
+    t.decimal "buy_value"
+    t.text "description"
     t.index ["product_type_id"], name: "index_products_on_product_type_id"
     t.index ["provider_id"], name: "index_products_on_provider_id"
   end
@@ -78,6 +68,15 @@ ActiveRecord::Schema.define(version: 20180111185937) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "quantity", default: 0
+    t.integer "kind"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_transactions_on_product_id"
   end
 
   create_table "users", force: :cascade do |t|

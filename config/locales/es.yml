@@ -1,0 +1,41 @@
+es:
+  hello: "Hello world"
+  provider_status:
+    enable: "Activo"
+    disabled: "Inactivo"
+
+  bench_status:
+    libre: "Libre"
+    ocupada: "Ocupada"
+
+  employees_status:
+    enable: "Activo"
+    disabled: "Inactivo"
+
+  product_status:
+    enable: "Activo"
+    disabled: "Inactivo"
+
+  product:
+    enable: "Activo"
+    disabled: "Inactivo"
+
+  activerecord:
+    models:
+      product: Producto
+    attributes:
+      product:
+        name: Nombre
+        provider: Proveedor
+        product_type: Tipo de Producto
+        value: Valor
+        enable: Activo
+
+  user_role:
+    admin: "Administrador"
+    bartender: "Bartender"
+    waiter: "Mesero"
+
+  user_status:
+    enable: "Activo"
+    disabled: "Inactivo"
